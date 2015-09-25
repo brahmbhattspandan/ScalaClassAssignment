@@ -10,7 +10,7 @@ trait RNG[+A] {
 
 object RNG {
   type SRNG[A] = Stream[RNG[A]]
-  def rngs[A](r: RNG[A]): SRNG[A] = r #:: Stream.empty
+  def rngs[A](r: RNG[A]): SRNG[A] = Stream.cons(r,rngs(r.next))
   def values[A](s: SRNG[A]): Stream[A] = s map (_.value)
   def values2[A](s: SRNG[(A,A)]): Stream[A] = s flatMap(i => i.value._1 #:: i.value._2 #:: Stream.empty)      // Hint: use flatMap
 }
@@ -25,7 +25,6 @@ abstract class RNG_Java[+A](n: Long) extends RNG[A] {
   def next: RNG[A] = newRNG(nextSeed)
   def state = n
 }
-
 object RNG_Java {
   def nextSeed(n: Long): Long = new Random(n).nextLong
 }
@@ -35,7 +34,6 @@ case class LongRNG(n: Long) extends RNG_Java[Long](n) {
   def newRNG(n: Long): RNG[Long] = LongRNG(n)
   def value = n
 }
-
 object LongRNG {
   def apply: RNG[Long] = LongRNG(System.currentTimeMillis())
   def main(args: Array[String]): Unit = {
@@ -46,10 +44,9 @@ object LongRNG {
 }
 
 
-
 case class DoubleRNG(n: Long) extends RNG_Java[Double](n) {
   def newRNG(n: Long) = DoubleRNG(n)
-  def value = n.toDouble
+  def value = n.toDouble/Long.MaxValue
   override def toString = s"DoubleRNG: $n->$value"
 
 }
@@ -62,7 +59,6 @@ case class DoubleRNG(n: Long) extends RNG_Java[Double](n) {
 case class UniformDouble(x: Double) extends AnyVal {
   def + (y: Double) = x + y
 }
-
 object UniformDouble {
   def apply(x: Double, y: Unit) = if (x>=0 && x<=1) new UniformDouble(x) else throw new IllegalArgumentException(s"$x is not in range 0..1")
   def + (x: Double, y: UniformDouble) = y+x
@@ -78,12 +74,9 @@ case class UniformDoubleRNG(n: Long) extends RNG_Java[UniformDouble](n) {
   def value = UniformDouble(math.abs(n.toDouble/Long.MaxValue),Unit)
   override def toString = s"UniformDoubleRNG: $n->$value"
 }
-
 object UniformDoubleRNG {
   def apply: RNG[UniformDouble] = UniformDoubleRNG(System.currentTimeMillis())
 }
-
-
 
 
 /**
@@ -101,14 +94,14 @@ case class GaussianRNG(n: Long) extends RNG_Java[(Double,Double)](n) {
     val u = r1.value.x
     val v = r2.value.x
     val k = if (u<=0) 0 else math.sqrt(-2*math.log(u))
-    val l = if (v<=0) 0 else math.sqrt(-2*math.log(v))
-    (k,l)
+    val v1 = if(v<=0) 0 else v
+    val a = k * math.cos(2*math.Pi*v1)
+    val b = k * math.sin(2 * math.Pi*v1)
+    (a,b)
   }
   override def nextSeed: Long = RNG_Java.nextSeed(r2.asInstanceOf[RNG_Java[UniformDoubleRNG]].state)
   override def toString = s"GaussianRNG: $n->(${value._1},${value._2})"
 }
-
-
 object GaussianRNG {
   def apply: RNG[(Double,Double)] = GaussianRNG(System.currentTimeMillis())
 }
