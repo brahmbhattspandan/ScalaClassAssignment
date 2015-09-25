@@ -1,0 +1,39 @@
+[0m[[0minfo[0m] [0m[32mRNGSpec:[0m[0m
+[0m[[0minfo[0m] [0m[32mRNG(0L)[0m[0m
+[0m[[0minfo[0m] [0m[32m- should match case RNG(-4962768465676381896L)[0m[0m
+[0m[[0minfo[0m] [0m[32m- should match case RNG(4804307197456638271L) on next[0m[0m
+[0m[[0minfo[0m] [0m[32m7th element of RNG(0)[0m[0m
+[0m[[0minfo[0m] [0m[31m- should match case RNG(-4962768465676381896L) *** FAILED ***[0m[0m
+[0m[[0minfo[0m] [0m[31m  LongRNG(0) did not match the given pattern (RNGSpec.scala:19)[0m[0m
+[0m[[0minfo[0m] [0m[32mDouble stream[0m[0m
+[0m[[0minfo[0m] [0m[32m- should have zero mean[0m[0m
+[0m[[0minfo[0m] [0m[32m0..1 stream[0m[0m
+[0m[[0minfo[0m] [0m[31m- should have mean = 0.5 using rngs *** FAILED ***[0m[0m
+[0m[[0minfo[0m] [0m[31m  scala.NotImplementedError: an implementation is missing[0m[0m
+[0m[[0minfo[0m] [0m[31m  at scala.Predef$.$qmark$qmark$qmark(Predef.scala:225)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at edu.neu.coe.scala.RNGSpec$$anonfun$5.edu$neu$coe$scala$RNGSpec$$anonfun$$sum$1(RNGSpec.scala:28)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at edu.neu.coe.scala.RNGSpec$$anonfun$5$$anonfun$10.apply(RNGSpec.scala:29)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at edu.neu.coe.scala.RNGSpec$$anonfun$5$$anonfun$10.apply(RNGSpec.scala:29)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at scala.collection.LinearSeqOptimized$class.foldLeft(LinearSeqOptimized.scala:124)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at scala.collection.immutable.List.foldLeft(List.scala:84)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at edu.neu.coe.scala.RNGSpec$$anonfun$5.apply$mcV$sp(RNGSpec.scala:29)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at edu.neu.coe.scala.RNGSpec$$anonfun$5.apply(RNGSpec.scala:26)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at edu.neu.coe.scala.RNGSpec$$anonfun$5.apply(RNGSpec.scala:26)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer$$anonfun$apply$1.apply$mcV$sp(Transformer.scala:22)[0m[0m
+[0m[[0minfo[0m] [0m[31m  ...[0m[0m
+[0m[[0minfo[0m] [0m[31m- should have mean = 0.5 using values(rngs) *** FAILED ***[0m[0m
+[0m[[0minfo[0m] [0m[31m  scala.NotImplementedError: an implementation is missing[0m[0m
+[0m[[0minfo[0m] [0m[31m  at scala.Predef$.$qmark$qmark$qmark(Predef.scala:225)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at edu.neu.coe.scala.RNGSpec$$anonfun$6.apply$mcV$sp(RNGSpec.scala:34)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at edu.neu.coe.scala.RNGSpec$$anonfun$6.apply(RNGSpec.scala:32)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at edu.neu.coe.scala.RNGSpec$$anonfun$6.apply(RNGSpec.scala:32)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer$$anonfun$apply$1.apply$mcV$sp(Transformer.scala:22)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.OutcomeOf$class.outcomeOf(OutcomeOf.scala:85)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.FlatSpecLike$$anon$1.apply(FlatSpecLike.scala:1647)[0m[0m
+[0m[[0minfo[0m] [0m[31m  ...[0m[0m
+[0m[[0minfo[0m] [0m[32mGaussian stream[0m[0m
+[0m[[0minfo[0m] [0m[31m- should have mean = 0 using values2(rngs) *** FAILED ***[0m[0m
+[0m[[0minfo[0m] [0m[31m  0.5566762784405592 was not less than or equal to 0.005 (RNGSpec.scala:40)[0m[0m
