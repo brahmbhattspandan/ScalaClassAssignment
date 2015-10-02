@@ -1,0 +1,11 @@
+[0m[[0minfo[0m] [0m[32mMap2Spec:[0m[0m
+[0m[[0minfo[0m] [0m[32mmap2right[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return Left(bad) for Right(1), Left(bad)[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return Left(bad) for Left(bad), Right(1)[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return Right(3) for Right(1), Right(2)[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return Left(very bad) for Left(very bad), Left(bad)[0m[0m
+[0m[[0minfo[0m] [0m[32mmap2leftRight[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return Left(bad;very bad) for Left(very bad), Left(bad)[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return Right(3) for Right(1), Right(2)[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return Left(bad) for Right(1), Left(bad)[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return Left(bad) for Left(bad), Right(1)[0m[0m

@@ -1,0 +1,11 @@
+[0m[[0minfo[0m] [0m[32mMiniDatabase2Spec:[0m[0m
+[0m[[0minfo[0m] [0m[32mHeight[0m[0m
+[0m[[0minfo[0m] [0m[32m- should parse 6 ft 5 in[0m[0m
+[0m[[0minfo[0m] [0m[32m- should parse 6' 5"[0m[0m
+[0m[[0minfo[0m] [0m[32m- should not parse 6'[0m[0m
+[0m[[0minfo[0m] [0m[32m- should equal 77 inches and be considered tall[0m[0m
+[0m[[0minfo[0m] [0m[32mName[0m[0m
+[0m[[0minfo[0m] [0m[32m- should parse Tom Brady[0m[0m
+[0m[[0minfo[0m] [0m[32m- should parse Thomas E. P. "Tom" Brady[0m[0m
+[0m[[0minfo[0m] [0m[32mEntry[0m[0m
+[0m[[0minfo[0m] [0m[32m- should parse Thomas E. P. "Tom" Brady, etc.[0m[0m
